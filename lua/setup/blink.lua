@@ -18,7 +18,10 @@ return {
     },
   },
   completion = {
-    documentation = { window = { border = "single" } },
+    documentation = { 
+        auto_show = true,
+        window = { border = "single" } 
+    },
     menu = {
       border = "single",
     },

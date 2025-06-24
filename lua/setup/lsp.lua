@@ -56,7 +56,6 @@ require("lspconfig").gopls.setup({
       -- These are common gopls settings. Adjust as per your preference.
       -- Refer to `gopls` documentation for a full list: `go doc golang.org/x/tools/gopls`
       buildFlags = {}, -- e.g., { "-tags=foo" }
-      env = {},        -- Environment variables for gopls
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
@@ -67,14 +66,22 @@ require("lspconfig").gopls.setup({
         rangeVariableTypes = true,
       },
       staticcheck = true, -- Enable static analysis by default (highly recommended)
+      gofumpt = false,
       analyses = {
         -- Enable/disable specific analyses from gopls
         unusedparams = true, -- Check for unused parameters
+        unusedvariable = true,
+        unreachable = true,
+        unusedfunc = true,
+        unusedresult = true,
+        unusedwrite = true,
+        waitgroup = true,
+
       },
-      ["ui.completion.useDeepCompletions"] = true,
-      ["ui.diagnostic.annotations"] = {}, -- Hide certain diagnostics
-      ["ui.formatting.gofumpt"] = true, -- Use gofumpt instead of gofmt if available
-      ["ui.semanticTokens"] = true, -- Enable semantic highlighting (requires nvim-treesitter setup)
+      -- ["ui.completion.useDeepCompletions"] = true,
+      -- ["ui.diagnostic.annotations"] = {}, -- Hide certain diagnostics
+      -- ["ui.formatting.gofumpt"] = true, -- Use gofumpt instead of gofmt if available
+      -- ["ui.semanticTokens"] = true, -- Enable semantic highlighting (requires nvim-treesitter setup)
     },
   },
 })
