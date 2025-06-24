@@ -22,6 +22,10 @@ require("nvim-treesitter.configs").setup({
     "yaml",
     "vim",
     "toml",
+    "go",
+    "python",
+    "markdown",
+    "markdown_inline"
   },
   highlight = { enable = true },
   incremental_selection = {
