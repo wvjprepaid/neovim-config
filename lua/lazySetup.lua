@@ -146,6 +146,17 @@ return {
   -- END: Add nvim-navbuddy and its dependencies here
 
   -- In your lazySetup.lua file
+    {
+    'github/copilot.vim',
+    -- event = 'VeryLazy', -- Load Copilot late to avoid startup performance impact
+    event = 'VimEnter',
+    config = function()
+      vim.g.copilot_no_tab_map = true -- Prevent Copilot from mapping <Tab> by default
+      vim.g.copilot_assume_mapped = true -- Tell Copilot you're handling keymaps
+      -- You can add other global copilot settings here, e.g.,
+      vim.g.copilot_filetypes = { 'go', 'python', 'javascript', 'typescript', 'lua' }
+    end,
+  },
 
   {
     "ibhagwan/fzf-lua",
@@ -172,4 +183,5 @@ return {
   { "EdenEast/nightfox.nvim", config = get_setup("nightfox"), enabled = false },
   { "folke/tokyonight.nvim", config = get_setup("tokyonight"), enabled = false },
   { "catppuccin/nvim", name = "catppuccin", config = get_setup("catppuccin"), enabled = false },
+  
 }

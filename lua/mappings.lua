@@ -215,6 +215,16 @@ km.set({ "n" }, "<Leader>xt", function()
   })
 end, { desc = "Show File Format" })
 
+vim.keymap.set('i', '<Tab>', 'copilot#Accept("\\<Tab>")', { silent = true, expr = true, desc = 'Copilot: Accept suggestion' })
+vim.keymap.set('i', '<C-k>', 'copilot#accept_word()', { silent = true, expr = true, desc = 'Copilot: Accept word' }) -- Optional: Accept current word
+vim.keymap.set('i', '<C-l>', 'copilot#next()', { silent = true, expr = true, desc = 'Copilot: Next suggestion' })
+vim.keymap.set('i', '<C-h>', 'copilot#previous()', { silent = true, expr = true, desc = 'Copilot: Previous suggestion' })
+vim.keymap.set('i', '<C-s>', 'copilot#suggest()', { silent = true, expr = true, desc = 'Copilot: Force suggestion' }) -- Optional: Manually trigger a suggestion
+vim.keymap.set('n', '<leader>x8', ':Copilot status<CR>', { desc = 'Copilot: Status' }) -- Optional: Check Copilot status
+vim.keymap.set('n', '<leader>x9', ':Copilot disable<CR>', { desc = 'Copilot: Disable' }) -- Optional: Disable Copilot
+vim.keymap.set('n', '<leader>x0', ':Copilot enable<CR>', { desc = 'Copilot: Enable' })  -- Optional: Enable Copilot
+
+
 -- Toggle Terminal, thanks https://www.reddit.com/r/neovim/comments/1bjhadj/efficiently_switching_between_neovim_and_terminal/
 exitTerm = function()
   vim.cmd(":lua Snacks.terminal.toggle()")
